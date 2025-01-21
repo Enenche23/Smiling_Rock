@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>House Finder</title>
+        <script type="text/javascript">
+            function ValidateNumber(value) {
+                // Validate the number
+                // if (!isNumber(Value)) {
+                alert("Please enter a number.");
+            }
+
+            function ValidateZipCode(value) {
+                // Validate the zip code
+                 if (!isNumber(value) ) {
+                alert("please enter a zip code in the form XXXXX.");
+                 }
+            }
+
+            function calcPrice () {
+                var maxPrice = document.getElementById("income").value * 4;
+                alert("You can afford a house that costs up to $" + maxPrice + ".");
+            }
+
+            function findHouses(form) {
+                var bedrooms = document.getElementsByTagName("bedrooms").value;
+                var zipCode = document.getElementById("zip").value;
+                // Display a list of matching houses from the Server form.submit();
+            }
+        </script>
+        <style>
+            #frame{
+                display: flex;
+                column-gap: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header" style="font-size: 50px;">Ready to find a new house?</div>
+        <div id="frame" style="max-height: 100px;">
+            <div id="left">
+                <img src = "house.jpeg" alt="House" />
+            </div>
+            <form name="orderForm" action="..." method="post" style="font-size: 50px;">
+                <div class="field">Enter your annual income:
+                    <input id="income" type="text" size="12" onblur="validateNumber(this.value)" style="height: 40px; width: 300px; font-size: 30px;"/>
+                </div>
+
+                <div class="field">Enter the number of bedrooms:
+                    <input id="bedrooms" type="text" size="6" onblur="validateNumber(this.value)" style="height: 40px; width: 300px; font-size: 30px;"/>
+                </div>
+
+                <div class="field">Enter your Zip Code
+                    <input id="zipcode" type="text" size="10" onblur="ValidateZipCode(this.value)" style="height: 40px; width: 300px; font-size: 30px;"/>
+                </div>
+
+                <input type="button" value="Calculate Price" onclick="calcPrice();" style="height: 35px; width: 300px; font-size: 30px; padding-bottom: 40px; border-radius: 10px;"/>
+                <input type="button" value="Shop for Houses" onclick="findHouses(this.form);" style="height: 35px; width: 300px; font-size: 30px; padding-bottom: 40px; border-radius: 10px;"/>
+                            </form>
+
+        </div>
+    </body>
+</html>
