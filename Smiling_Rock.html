@@ -2,9 +2,10 @@
     <head>
         <title>IRock - The Virtual pet Rock</title>
         <script type="text/javascript" src="cookie.js"></script>
+        <link rel="stylesheet" href="rock.css">
        
     </head>
-    <body onload="alert('Hello, I am your pet rock.');">
+    <body onload="alert('Hello, I am your pet rock.'); resizeRock();" onresize="resizeRock();">
         <div style = "margin-top:100px; text-align: center">
             <img Id = "rockImg" src="Rock/rock.jpeg" alt="IRock" style = "cursor: pointer" onclick= "touchRock();" />
         </div>

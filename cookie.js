@@ -1,17 +1,12 @@
-// document.cookie = "firstName=SpongeBob; expires=Sun, 01 Jan 1930 12:00:00 UTC; path=/";
-// document.cookie = "lastName=SquarePants; expires=Sun, 01 Jan 1930 12:00:00 GMT; path=/";
+window.addEventListener("load", resizeRock);
+window.addEventListener("resize", resizeRock);
 
-// // console.log(navigator.cookieEnabled);
+function resizeRock () {
+    const img = document.getElementById("Rock/rock.jpeg; Rock/rock_happy.jpeg; Rock/lonely.jpeg");
+    style.width = window.innerWidth + "px";
+    style.height = window.innerHeight + "px";
+}
 
-document.cookie = "firstName=Patrick; expires=Sun, 01 Jan 1950 12:00:00 UTC; path=/";
-document.cookie = "lastName=Star; expires=Sun, 01 Jan 19500 12:00:00 GMT; path=/";
-document.cookie = "email=Sponge@gmail.com; expires=Sun, 01 Jan 1970 00:00:00 GMT; path=/";
-
-// console.log(document.cookie);
-
- writeCookie("email", "Sponge@gmail.com", 356);
-
- console.log(document.cookie);
 function writeCookie(name, value, days) {
     // By default, there is no expiration so the cookie is temporary
     var expires = "";
@@ -46,18 +41,25 @@ function eraseCookie(name) {
     writeCookie(name, "", -1);
 }
 
+function greetUser() {
+    userName = readCookie("irock_usernames");
+    if (userName)
+        alert ("Hello " + userName + ", I missed you.");
+    else
+    alert ("Hello, I am your pet rock. ")
+}
+
 function touchRock() {
-    var userName = prompt("what is your name?", "Enter your name here.");
         if (userName) {
-            alert ("I like the attention, " + userName + ". Thank you.");
+            alert ("I like the attention, " + userName + ", Thank you.");
         }
         else {
-            userName = prompt ("What is your name?", "Enter your name here.");
-            if (userName) {
-                alert ("It is good to meet you, " + userName + ".");
-                writeCookie ("irock_userName", userName, 5 * 365);
-            }
+            userName = prompt ("what is your name?", "Enter your name here.");
+        }
+        if (userName){
+            alert ("It is good to meet you, " + userName + ".");
+            writeCookie("irock_username," + userName + 5 * 365);
         }
         document.getElementById("rockImg").src = "Rock/rock_happy.jpeg";
-        setTimeout ("document.getElementById('rockImg').src = 'Rock/lonely.jpeg';",  20000);
+        setTimeout ("document.getElementById('rockImg').src = 'Rock/rock.jpeg';",5*60*1000);
     }
