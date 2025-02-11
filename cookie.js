@@ -2,7 +2,7 @@ window.addEventListener("load", resizeRock);
 window.addEventListener("resize", resizeRock);
 
 function resizeRock () {
-    const img = document.getElementById("Rock/rock.jpeg; Rock/rock_happy.jpeg; Rock/lonely.jpeg");
+    const img = document.getElementById("Rock/rock.jpeg; Rock/rock_happy.jpeg; Rock/lonely.webp");
     style.width = window.innerWidth + "px";
     style.height = window.innerHeight + "px";
 }
@@ -42,7 +42,8 @@ function eraseCookie(name) {
 }
 
 function greetUser() {
-    userName = readCookie("irock_usernames");
+    if (navigator.cookieEnabled)
+    userName = readCookie("irock_username");
     if (userName)
         alert ("Hello " + userName + ", I missed you.");
     else
@@ -51,15 +52,19 @@ function greetUser() {
 
 function touchRock() {
         if (userName) {
-            alert ("I like the attention, " + userName + ", Thank you.");
+            alert ("I like the attention I'm getting, " + userName + ", Thank you.");
         }
         else {
             userName = prompt ("what is your name?", "Enter your name here.");
         }
         if (userName){
             alert ("It is good to meet you, " + userName + ".");
+        if(navigator.cookieEnabled)
             writeCookie("irock_username," + userName + 5 * 365);
+        else
+            alert ("Sorry. Cookies aren't supported/ enabled in your browser./won't remember you later"); 
         }
+
         document.getElementById("rockImg").src = "Rock/rock_happy.jpeg";
-        setTimeout ("document.getElementById('rockImg').src = 'Rock/rock.jpeg';",5*60*1000);
+        setTimeout ("document.getElementById('rockImg').src = 'Rock/lonely.webp';",0.2*60*1000);
     }
